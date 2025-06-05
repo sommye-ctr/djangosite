@@ -1,70 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Posts</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom font for a clean look */
-        body {
-            font-family: "Inter", sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center py-10 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto w-full">
-        <h1 class="text-4xl font-bold text-center text-gray-800 mb-10">Our Latest Blog Posts</h1>
+<header>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white shadow-lg rounded-xl p-8 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                <h2 class="text-2xl font-bold text-gray-900 mb-3">The Art of Mindful Living</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    Discover simple practices to bring more mindfulness into your daily routine and enhance your well-being.
-                </p>
-                <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Read More &rarr;</a>
-            </div>
-
-            <div class="bg-white shadow-lg rounded-xl p-8 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                <h2 class="text-2xl font-bold text-gray-900 mb-3">Exploring the Future of AI</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    A deep dive into the latest advancements in Artificial Intelligence and what they mean for tomorrow's world.
-                </p>
-                <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Read More &rarr;</a>
-            </div>
-
-            <div class="bg-white shadow-lg rounded-xl p-8 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                <h2 class="text-2xl font-bold text-gray-900 mb-3">Healthy Eating on a Budget</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    Tips and tricks for preparing nutritious meals without breaking the bank. Delicious and affordable!
-                </p>
-                <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Read More &rarr;</a>
-            </div>
-
-            <div class="bg-white shadow-lg rounded-xl p-8 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                <h2 class="text-2xl font-bold text-gray-900 mb-3">Mastering Remote Work Productivity</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    Strategies to stay focused, organized, and productive while working from home.
-                </p>
-                <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Read More &rarr;</a>
-            </div>
-
-            <div class="bg-white shadow-lg rounded-xl p-8 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                <h2 class="text-2xl font-bold text-gray-900 mb-3">The Benefits of Outdoor Exercise</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    Why taking your workouts outside can boost your mood and physical health.
-                </p>
-                <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Read More &rarr;</a>
-            </div>
-
-            <div class="bg-white shadow-lg rounded-xl p-8 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                <h2 class="text-2xl font-bold text-gray-900 mb-3">Beginner's Guide to Digital Photography</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    Everything you need to know to start capturing stunning photos with your digital camera.
-                </p>
-                <a href="#" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">Read More &rarr;</a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+{% for post in posts %}
+    <article>
+        <time>published: {{ post.published_date }}</time>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+{% endfor %}
